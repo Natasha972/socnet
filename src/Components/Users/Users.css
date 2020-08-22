@@ -1,0 +1,16 @@
+.Users {
+  width: 100%;
+  min-height: 100%;
+}
+.User{
+  display: flex;
+  align-items: flex-end;
+  background-color: #D2A3D9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.user-info{
+  display: flex;
+  flex-direction: column;
+}

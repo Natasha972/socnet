@@ -1,0 +1,23 @@
+.messages {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+.add-message {
+  position: fixed;
+}
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 50%;
+}
+.right {
+  margin-left: auto;
+  background-color: #F2BBC5;
+}
+.left {
+  background-color: #D2A3D9;
+}
