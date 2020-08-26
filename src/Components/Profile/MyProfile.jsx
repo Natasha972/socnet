@@ -1,12 +1,12 @@
 import React, { useState} from 'react';
 import '../Profile/Profile.css';
 import Preloader from '../common/Preloader/Preloader';
-import Posts from '../Posts/Posts';
 import ProfileInfo from './ProfileInfo'
 import Avatar from '../common/Avatar/Avatar';
 import Status from './Status';
 import AddNewForm from '../Forms/AddNewForm'
 import UpdateProfileForm from '../Forms/UpdateProfileForm';
+import PostsContainer from '../Posts/PostsContainer';
 
 function MyProfile(props) {
   const [editMode, setEdit]= useState(false)
@@ -51,7 +51,7 @@ function MyProfile(props) {
       </div>
       )}
       <AddNewForm submitHandler={props.addPostThunkCreator} value='new post text'/>
-      <Posts user={props.user} posts={props.posts} deletePost={props.deletePostThunkCreator}/>
+      <PostsContainer user={props.user} posts={props.posts} deletePost={props.deletePostThunkCreator}/>
     </div>
   );
 }

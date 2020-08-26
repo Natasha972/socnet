@@ -1,14 +1,13 @@
 import API from "../API/api";
+import { setPostsAC } from "./posts-reducer";
 
 const FOLLOW= "FOLLOW";
 const UNFOLLOW= "UNFOLLOW";
 const SET_USER_INFO= 'SET-USER';
-const SET_USER_POSTS= 'SET-USER-POSTS';
 const TOGGLE_FOLLOWING_PROGRESS= 'TOGGLE_IS_FOLLOWING';
 
 let initialState= {
     user: {},
-    posts: [],
     followingInProgress: false,
 }
 const userProfileReducer= (state=initialState, action)=> {
@@ -29,11 +28,6 @@ const userProfileReducer= (state=initialState, action)=> {
         ...state,
         user: action.user
       }
-    case SET_USER_POSTS:
-      return {
-        ...state,
-        posts: action.posts
-      }
     case TOGGLE_FOLLOWING_PROGRESS:
       return {
         ...state,
@@ -44,9 +38,7 @@ const userProfileReducer= (state=initialState, action)=> {
   }
 }
 
-
 export let setUserInfo= (user)=> ({type: SET_USER_INFO, user});
-export let setUserPosts= (posts)=> ({type: SET_USER_POSTS, posts});
 export let followUser= (userId)=> ({type: FOLLOW, id: userId});
 export let unfollowUser= (userId)=> ({type: UNFOLLOW, id: userId});
 export let toggleIsFollowing= (inProgress)=> ({type: TOGGLE_FOLLOWING_PROGRESS, inProgress});
@@ -55,7 +47,7 @@ export const getUserProfileThunkCreator= (userId)=> async dispatch=> {
   let response= await API.getUserProfile(userId)
   if(response.status==='success') {
     dispatch(setUserInfo(response.user))
-    dispatch(setUserPosts(response.posts))
+    dispatch(setPostsAC(response.posts))
   }
 }
 export const followUserThunkCreator= (userId)=> async dispatch=> {
