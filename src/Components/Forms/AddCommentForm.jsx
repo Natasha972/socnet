@@ -10,9 +10,6 @@ function AddCommentForm(props) {
   const validationSchema= Yup.object({
   })
   const onSubmit= (values, onSubmittingProps)=> {
-    const errorHandler= (response)=> {
-      alert(response);
-    }
     const successHandler= ()=> {
       onSubmittingProps.resetForm(initialValues)
     }
