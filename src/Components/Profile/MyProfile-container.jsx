@@ -1,7 +1,7 @@
 import React from 'react';
 import {getMyProfileThunkCreator,
         updateStatusThunkCreator, updateAvatarThunkCreator, updateProfileThunkCreator} from '../../redux/myprofile-reducer';
-import {addPostThunkCreator, deletePostThunkCreator} from './../../redux/posts-reducer'
+import {addPostThunkCreator, deletePostThunkCreator, addLikeThunkCreator} from './../../redux/posts-reducer'
 import {logoutThunkCreator} from '../../redux/app-reducer';
 import { connect } from 'react-redux';
 import MyProfile from './MyProfile';
@@ -27,5 +27,6 @@ let mapStateToProps= (state)=> {
   }
 }
 export default connect(mapStateToProps, {addPostThunkCreator, updateAvatarThunkCreator,
-                      getMyProfileThunkCreator, updateStatusThunkCreator, logoutThunkCreator, deletePostThunkCreator, updateProfileThunkCreator})
+                      getMyProfileThunkCreator, updateStatusThunkCreator, logoutThunkCreator,
+                      deletePostThunkCreator, updateProfileThunkCreator})
                       (MyProfileContainer);
