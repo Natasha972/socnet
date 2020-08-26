@@ -114,5 +114,11 @@ export default {
   addLike (postId) {
     return axios.post('addLike.php',{postId})
     .then(response=>response.data)
+  },
+  getUserPosts (userId) {
+
+  },
+  getMyPosts () {
+
   }
 }

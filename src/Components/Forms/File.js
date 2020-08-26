@@ -8,8 +8,7 @@ function File(props) {
     <>
       <Field  name={name} {...rest}>
         {
-          ({form, field})=> {
-            console.log(field)
+          ({form})=> {
             const {setFieldValue}= form
             return <input  id={name} type="file" onChange={(event) => {
                     setFieldValue( name, event.currentTarget.files[0]);

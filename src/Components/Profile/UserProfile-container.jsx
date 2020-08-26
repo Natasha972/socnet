@@ -16,7 +16,7 @@ class UserProfileContainer extends React.Component{
 }
 let mapStateToProps= (state)=> {
   return {
-    posts: state.user.posts,
+    posts: state.posts.posts,
     user: state.user.user,
     isFollowing: state.user.followingInProgress
   }
