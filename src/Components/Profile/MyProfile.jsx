@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import '../Profile/Profile.css';
 import Preloader from '../common/Preloader/Preloader';
 import Posts from '../Posts/Posts';
