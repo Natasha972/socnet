@@ -7,18 +7,19 @@ import { compose } from 'redux';
 
 class MessagesContainer extends React.Component {
   componentDidMount(){
-    let userId= this.props.match.params.userId
-    this.props.getMessagesThunkCreator(userId);
+    let chatId= this.props.match.params.chatId
+    this.props.getMessagesThunkCreator(chatId);
   }
   render() {
     return (
-      <MessagesPage {...this.props} user={this.props.match.params.userId}/>
+      <MessagesPage {...this.props} />
     )
   }
 }
 let mapStateToProps= (state)=> {
   return {
-    messages: state.messages.messages
+    messages: state.messages.messages,
+    myId: state.app.userId
   }
 }
 export default compose(connect(mapStateToProps, {sendMessageThunkCreator, getMessagesThunkCreator}), withRouter)(MessagesContainer);

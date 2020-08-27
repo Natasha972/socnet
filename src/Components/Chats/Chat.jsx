@@ -5,7 +5,7 @@ import './Chats.css'
 function Chat(props) {
   return (
     <div className='chat'>
-    <Link to={'/messages/'+props.chat.user_id}>
+    <Link to={'/messages/'+props.chat.chat}>
       <div>
         <span>{props.chat.chat_name}</span>
         <span>{props.chat.date}</span>

@@ -9,7 +9,7 @@ function MessagesPage(props) {
   if(!props.messages)return <Preloader/>
   return (
     <>
-      <Messages messages={props.messages}/>
+      <Messages messages={props.messages} myId={props.myId}/>
       <AddNewForm className='add-message' submitHandler={props.sendMessageThunkCreator} user={props.user} value=''/>
     </>
   );
