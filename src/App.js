@@ -44,7 +44,7 @@ class AppComponent extends React.Component {
                 <ChatsContainer />
               </React.Suspense>
           )}/>
-          <Route path="/messages/:chatId" render={() => <MessagesContainer />} />
+          <Route path="/messages/:userId" render={() => <MessagesContainer />} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/registration" render={() => <Registration />} />
         </div>

@@ -89,8 +89,8 @@ export default {
     }})
     .then(response=>response.data)
   },
-  getMessages (chatId) {
-    return axios.post('messages.php', {chatId})
+  getMessages (userId) {
+    return axios.post('messages.php', {userId})
     .then(response=>response.data)
   },
   getComments (postId) {

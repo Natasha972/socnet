@@ -20,7 +20,6 @@ function UpdateProfileForm(props) {
   })
   const onSubmit= (values, onSubmittingProps)=> {
     values={...values, birthdate: formatDate(values.birthdate)}
-    console.log(values)
     const errorHandler= (response)=> {
       alert(response);
     }
@@ -51,7 +50,7 @@ function UpdateProfileForm(props) {
   )
 }
 export default UpdateProfileForm;
-function formatDate(date) {
+export function formatDate(date) {
    return (
      date.slice(6)+'.'+
      date.slice(3,5)+'.'+

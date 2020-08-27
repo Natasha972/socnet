@@ -9,7 +9,7 @@ function User({user}) {
       <Avatar classname="small" avatar={user.avatar}/>
       <NavLink to={"/users/"+ user.id}>
         <div className="user-info">
-          <span>{user.name}</span>
+          <span>{user.firstname + ' '+ user.lastname}</span>
           <span>{user.cityname}</span>
         </div>
       </NavLink>

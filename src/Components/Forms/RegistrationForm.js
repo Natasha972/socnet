@@ -2,6 +2,7 @@ import React from 'react';
 import {Formik, Form} from 'formik';
 import FormikControl from './FormikControl';
 import * as Yup from 'yup'
+import { formatDate } from './UpdateProfileForm';
 
 function RegistrationForm(props) {
 
@@ -23,7 +24,7 @@ function RegistrationForm(props) {
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), ''], 'Passwords must match').required('Required'),
   })
   const onSubmit= (values, onSubmittingProps)=> {
-    let formData= values
+    let formData= {...values, birthdate: formatDate(values.birthdate)}
     const errorHandler= (response)=> {
       alert(response);
       onSubmittingProps.setSubmitting(false);
@@ -41,7 +42,7 @@ function RegistrationForm(props) {
               <FormikControl className='input' control='input' name='cityname' type='text' label='City Name'/>
               <FormikControl className='input' control='input' name='country' type='text' label='Country'/>
               <FormikControl className='input' control='input' name='email' type='email' label='E-mail'/>
-              <FormikControl className='input' control='date' name='birthdate'  label='Birth date'/>
+              <FormikControl className='input' control='input' name='birthdate' placeholder='01.01.2020' label='Birth date'/>
               <FormikControl className='input' control='input' name='password' type='password' label='Password'/>
               <FormikControl className='input' control='input' name='confirmPassword' type='password' label='Confirm Password'/>
               <button className='button' type='submit' disabled={!formik.isValid || formik.isSubmitting}>Submit</button>

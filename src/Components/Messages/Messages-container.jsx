@@ -7,12 +7,12 @@ import { compose } from 'redux';
 
 class MessagesContainer extends React.Component {
   componentDidMount(){
-    let chatId= this.props.match.params.chatId
-    this.props.getMessagesThunkCreator(chatId);
+    let userId= this.props.match.params.userId
+    this.props.getMessagesThunkCreator(userId);
   }
   render() {
     return (
-      <MessagesPage {...this.props} />
+      <MessagesPage {...this.props} user={this.props.match.params.userId}/>
     )
   }
 }

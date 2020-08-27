@@ -32,8 +32,8 @@ export const sendMessageThunkCreator=(message, successHandler, errorHandler, pro
     successHandler()
   } else errorHandler(response)
 }
-export const getMessagesThunkCreator=(chatId) => async dispatch => {
-  let response= await API.getMessages(chatId)
+export const getMessagesThunkCreator=(userId) => async dispatch => {
+  let response= await API.getMessages(userId)
   if(response.status==='success') {
     dispatch(setMessages(response.messages))
     console.log(response.messages)
