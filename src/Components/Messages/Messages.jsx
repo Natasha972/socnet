@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import './Messages.css'
 import Message from './Message'
 
-const Messages = ({ messages }) => {
+const Messages = ({ messages, myId }) => {
 
   const messagesEndRef = useRef(null)
 
@@ -14,7 +14,7 @@ const Messages = ({ messages }) => {
 
   return (
     <div className="messages">
-      {messages.map(message => <Message key={message.id} message={message} />)}
+      {messages.map(message => <Message key={message.id} message={message} myId={myId}/>)}
       <div ref={messagesEndRef} />
     </div>
   )

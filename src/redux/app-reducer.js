@@ -7,6 +7,7 @@ const SET_APP_INIT = "SET-APP-INIT";
 let initialState = {
   isFetching: false,
   islogin: false,
+  userId: '',
   init: false,
 };
 
@@ -16,6 +17,7 @@ let authReducer = (state = initialState, action) => {
       return {
         ...state,
         islogin: true,
+        userId: action.id
       }
     case SET_LOGOUT:
       return {
@@ -32,7 +34,7 @@ let authReducer = (state = initialState, action) => {
   }
 };
 
-export let setLogin = () => ({ type: SET_LOGIN});
+export let setLogin = (id) => ({ type: SET_LOGIN, id});
 export let setLogout = () => ({ type: SET_LOGOUT});
 export let setInitApp = () => ({ type: SET_APP_INIT});
 
@@ -42,8 +44,8 @@ export const appInitThunkCreator = () => async dispatch => {
 }
 export const loginThunkCreator = (formData, errorHandler) => async dispatch => {
   let response= await API.login(formData)
-    if (response==='success') {
-      dispatch(setLogin())
+    if (response.status==='success') {
+      dispatch(setLogin(response.id))
     } else errorHandler(response)
 }
 export const registerThunkCreator = (formData, errorHandler) => async dispatch => {

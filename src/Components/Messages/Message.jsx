@@ -6,7 +6,7 @@ function Message(props) {
     imageSrc= 'http://dynweb.loft:8888/images/'+props.message.image
   }
   let classname='left'
-  if(props.message.my_id===props.message.sender){
+  if(props.myId===props.message.sender){
     classname='right'
   }
   return (
