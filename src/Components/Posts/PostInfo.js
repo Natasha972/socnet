@@ -3,7 +3,7 @@ import comments from './../../images/comment.svg'
 import likes from './../../images/likes.svg'
 import views from './../../images/views.svg'
 
-function PostInfo({post, addLike}) {
+function PostInfo({post, addLike, toggleCommentsShown}) {
   const handleLikeClick= ()=> {
     addLike(post.id)
   }
@@ -14,7 +14,7 @@ function PostInfo({post, addLike}) {
         <span>{post.likes}</span>
       </div>
       <div>
-        <img src={comments}/>
+        <img onClick={toggleCommentsShown} src={comments}/>
         <span>{post.comments}</span>
       </div>
       <div>

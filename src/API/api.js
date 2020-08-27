@@ -93,8 +93,8 @@ export default {
     return axios.post('messages.php', {userId})
     .then(response=>response.data)
   },
-  getPostPage (postId) {
-    return axios.post('getPostPage.php', {postId})
+  getComments (postId) {
+    return axios.post('getComments.php', {postId})
     .then(response=>response.data)
   },
   addComment (comment, postId) {
@@ -114,11 +114,5 @@ export default {
   addLike (postId) {
     return axios.post('addLike.php',{postId})
     .then(response=>response.data)
-  },
-  getUserPosts (userId) {
-
-  },
-  getMyPosts () {
-
   }
 }
