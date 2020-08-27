@@ -23,6 +23,7 @@ let authReducer = (state = initialState, action) => {
       return {
         ...state,
         islogin: false,
+        userId: ''
       }
     case SET_APP_INIT:
       return {
@@ -50,8 +51,8 @@ export const loginThunkCreator = (formData, errorHandler) => async dispatch => {
 }
 export const registerThunkCreator = (formData, errorHandler) => async dispatch => {
   let response= await API.register(formData)
-    if (response==='success') {
-      dispatch(setLogin())
+    if (response.status ==='success') {
+      dispatch(setLogin(response.id))
     } else errorHandler(response)
 }
 export const logoutThunkCreator = () => async dispatch => {
@@ -63,8 +64,8 @@ export const logoutThunkCreator = () => async dispatch => {
 export const authThunkCreator = () => async dispatch => {
   // возвращаем промис для dispatchResult in appInitThunkCreator
   let response= await API.auth()
-  if (response === "success") {
-   dispatch(setLogin())
+  if (response.status === "success") {
+   dispatch(setLogin(response.id))
   } else return
 }
 export default authReducer;
