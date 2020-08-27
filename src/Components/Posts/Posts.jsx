@@ -1,12 +1,12 @@
 import React from 'react';
-import Post from './Post';
 import './Posts.css';
+import PostContainer from './PostContainer';
 
 function Posts(props) {
   return (
     <div className="posts">
       {props.posts.map(
-        (post)=> <Post key={post.id} post={post} user={props.user} deletePost={props.deletePost} addLike={props.addLikeThunkCreator}/>)
+        (post)=> <PostContainer key={post.id} post={post} user={props.user} deletePost={props.deletePost} addLike={props.addLikeThunkCreator}/>)
       }
     </div>
   );

@@ -1,19 +1,18 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { appInitThunkCreator } from "./redux/app-reducer";
-import { connect } from "react-redux";
-import UserProfileContainer from "./Components/Profile/UserProfile-container";
-import MessagesContainer from "./Components/Messages/Messages-container";
-import MyProfileContainer from "./Components/Profile/MyProfile-container";
-import HeaderContainer from "./Components/Header/Header-container";
-import Login from "./Components/Login/Login";
-import Preloader from "./Components/common/Preloader/Preloader";
-import store from "./redux/redux-store";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import React from "react"
+import { Route } from "react-router-dom"
+import { appInitThunkCreator } from "./redux/app-reducer"
+import { connect } from "react-redux"
+import UserProfileContainer from "./Components/Profile/UserProfile-container"
+import MessagesContainer from "./Components/Messages/Messages-container"
+import MyProfileContainer from "./Components/Profile/MyProfile-container"
+import HeaderContainer from "./Components/Header/Header-container"
+import Login from "./Components/Login/Login"
+import Preloader from "./Components/common/Preloader/Preloader"
+import store from "./redux/redux-store"
+import { Provider } from "react-redux"
+import { BrowserRouter } from "react-router-dom"
 import HomeContainer from './Components/Home/Home'
-import PostPageContainer from "./Components/Posts/PostPage-container";
-import Registration from "./Components/Login/Registration";
+import Registration from "./Components/Login/Registration"
 const ChatsContainer = React.lazy(() =>
   import("./Components/Chats/Chats-container")
 );
@@ -46,7 +45,6 @@ class AppComponent extends React.Component {
               </React.Suspense>
           )}/>
           <Route path="/messages/:userId" render={() => <MessagesContainer />} />
-          <Route path="/post/:postId" render={() => <PostPageContainer />} />
           <Route path="/login" render={() => <Login />} />
           <Route path="/registration" render={() => <Registration />} />
         </div>

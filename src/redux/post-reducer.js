@@ -1,18 +1,16 @@
 import API from '../API/api'
-const SET_POST_PAGE= 'SET-POST-PAGE'
+const SET_COMMENTS= 'SET-COMMENTS'
 const ADD_COMMENT= 'ADD-COMMENT'
 
 const initialState= {
-  post: {},
   comments: []
 }
 const postReducer= (state= initialState, action)=> {
   switch(action.type) {
-    case SET_POST_PAGE:
+    case SET_COMMENTS:
       return {
         ...state,
-        post: action.post_page.post,
-        comments: action.post_page.comments
+        comments: action.comments
       }
     case ADD_COMMENT:
       return {
@@ -22,14 +20,14 @@ const postReducer= (state= initialState, action)=> {
     default: return state
   }
 }
-export const setPostPageAC= (post_page)=> ({type: SET_POST_PAGE, post_page})
+export const setCommentsAC= (comments)=> ({type: SET_COMMENTS, comments})
 export const addCommentAC= (comment)=> ({type: ADD_COMMENT, comment})
 
 
-export const getPostPageThunkCreator= (postId)=> async dispatch=> {
-  const response= await API.getPostPage(postId)
+export const getCommentsThunkCreator= (postId)=> async dispatch=> {
+  const response= await API.getComments(postId)
   if(response.status==='success') {
-    dispatch(setPostPageAC(response.post_page))
+    dispatch(setCommentsAC(response.comments))
   }else return
 }
 export const addCommentThunkCreator= (comment, successHandler, errorHandler, props)=> async dispatch=> {
